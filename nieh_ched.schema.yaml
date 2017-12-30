@@ -4,7 +4,7 @@
 schema:
   schema_id: nieh_ched
   name: 爾切羅馬字
-  version: "2013.10.25"
+  version: "2017.12.28"
   author:
     - "叔寍 <coywjs@gmail.com>"
   description: |
@@ -48,60 +48,54 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: abcdefghijklmnopqrstuvwxyz
+  alphabet: 'abcdefghijklmnopqrstuvwxyz/\<>'
+  initials: abcdefghijklmnopqrstuvwxyz
   delimiter: " '"
+  algebra:
+    - xform/^o//
+    - derive/b$/p/
+    - derive/d$/t/
+    - derive/g$/k/
+    - derive/q/ng/
+    - xform/ngng$/ngs/
+    - derive/(.)\1$/\1s/
+    - derive=h$=/
+    - derive/s$/\\/
+    - derive/h$/</
+    - derive/s$/>/
 
 translator:
   dictionary: nieh_ched
   preedit_format:
-    - xform/a([ywmnq])h($|[ '])/á$1$2/
-    - xform/ah($|[ '])/á$1/
-    - xform/e([ywmnq])h($|[ '])/é$1$2/
-    - xform/eh($|[ '])/é$1/
-    - xform/i([ywmnq])h($|[ '])/í$1$2/
-    - xform/ih($|[ '])/í$1/
-    - xform/o([ywmnq])h($|[ '])/ó$1$2/
-    - xform/oh($|[ '])/ó$1/
-    - xform/u([ywmnq])h($|[ '])/ú$1$2/
-    - xform/uh($|[ '])/ú$1/
-    - xform/aa($|[ '])/à$1/
-    - xform/ee($|[ '])/è$1/
-    - xform/ii($|[ '])/ì$1/
-    - xform/oo($|[ '])/ò$1/
-    - xform/uu($|[ '])/ù$1/
-    - xform/ayy($|[ '])/ày$1/
-    - xform/eyy($|[ '])/èy$1/
-    - xform/iyy($|[ '])/ìy$1/
-    - xform/oyy($|[ '])/òy$1/
-    - xform/uyy($|[ '])/ùy$1/
-    - xform/aww($|[ '])/àw$1/
-    - xform/eww($|[ '])/èw$1/
-    - xform/iww($|[ '])/ìw$1/
-    - xform/oww($|[ '])/òw$1/
-    - xform/uww($|[ '])/ùw$1/
-    - xform/amm($|[ '])/àm$1/
-    - xform/emm($|[ '])/èm$1/
-    - xform/imm($|[ '])/ìm$1/
-    - xform/omm($|[ '])/òm$1/
-    - xform/umm($|[ '])/ùm$1/
-    - xform/ann($|[ '])/àn$1/
-    - xform/enn($|[ '])/èn$1/
-    - xform/inn($|[ '])/ìn$1/
-    - xform/onn($|[ '])/òn$1/
-    - xform/unn($|[ '])/ùn$1/
-    - xform/aqq($|[ '])/àq$1/
-    - xform/eqq($|[ '])/èq$1/
-    - xform/iqq($|[ '])/ìq$1/
-    - xform/oqq($|[ '])/òq$1/
-    - xform/uqq($|[ '])/ùq$1/
-    - xform/q/ŋ/
+    #- xform/(^|[ '])o/$1/
+    - xform=a[h/<]($|[ '])=á$1
+    - xform=e[h/<]($|[ '])=é$1
+    - xform=i[h/<]($|[ '])=í$1
+    - xform=o[h/<]($|[ '])=ó$1
+    - xform=u[h/<]($|[ '])=ú$1
+    - xform=a([ywmnq]|ng)[h/<]($|[ '])=á$1$2
+    - xform=e([ywmnq]|ng)[h/<]($|[ '])=é$1$2
+    - xform=i([ywmnq]|ng)[h/<]($|[ '])=í$1$2
+    - xform=o([ywmnq]|ng)[h/<]($|[ '])=ó$1$2
+    - xform=u([ywmnq]|ng)[h/<]($|[ '])=ú$1$2
+    - xform/a[as\\>]($|[ '])/à$1/
+    - xform/e[es\\>]($|[ '])/è$1/
+    - xform/i[is\\>]($|[ '])/ì$1/
+    - xform/o[os\\>]($|[ '])/ò$1/
+    - xform/u[us\\>]($|[ '])/ù$1/
+    - xform/a([ywmnq]|ng)(\1|[s\\>])($|[ '])/à$1$3/
+    - xform/e([ywmnq]|ng)(\1|[s\\>])($|[ '])/è$1$3/
+    - xform/i([ywmnq]|ng)(\1|[s\\>])($|[ '])/ì$1$3/
+    - xform/o([ywmnq]|ng)(\1|[s\\>])($|[ '])/ò$1$3/
+    - xform/u([ywmnq]|ng)(\1|[s\\>])($|[ '])/ù$1$3/
+    - xform/q|ng/ŋ/
     - xform/(^|[ '])x/$1ɦ/
     - xform/v/ü/
     - xform/um($|[ '])/uuŋ$1/
     - xform/úm($|[ '])/uúŋ$1/
     - xform/ùm($|[ '])/uùŋ$1/
     - xform/ub($|[ '])/uug$1/
-    - xform/(^|[ '])o/$1/
+    - xform/up($|[ '])/uuk$1/
 
 reverse_lookup:
   dictionary: luna_pinyin
