@@ -56,7 +56,7 @@ translator:
   preedit_format:
     - xform/wq/f/
     - xform/v/ui/
-    - xform/w([^rsqk'])/uy$1/
+    - xform/w([^rsqk '])/uy$1/
     - xform/ii/i/
     - xform/a([jwmnqf])r($|[ '])/á$1$2/
     - xform/ar($|[ '])/á$1/
